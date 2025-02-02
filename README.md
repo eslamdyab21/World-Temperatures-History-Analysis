@@ -72,3 +72,19 @@ city_data_approach1.csv  city_data_table.csv    global_data_table.csv  orion    
 city_data_approach2.csv  explor_datasets.ipynb  images                 prepare_data.py
 ```
 
+<br/>
+<br/>
+<br/>
+
+## KNIME Analytics 
+###  1- Output a table that has the overall average of each country
+#### Approach 1
+Using the `city_data_approach1.csv` as input in the `CSV Reader`
+![](task1/t1_knime_avg_temp_by_country_1.png)
+
+#### Approach 2
+Using the `city_data_approach2.csv` as input in the `CSV Reader`
+![](task1/t1_knime_avg_temp_by_country_2.png)
+
+The saved output aggregated csv file for the two approaches:
+![](task1/t1_knime_output_csv.png)
