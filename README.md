@@ -100,7 +100,7 @@ In `task2_classify_temp` workflow for this task:
 ![](images/task2/t2_knime_classify_temp_1.png)
 
 We calculated this in **two ways**:
-1. used `Auto-Binner` (the lower part), in which we define a fixed number of bins `3`, and the use `width` in `Equal`
+1. used `Auto-Binner` (the lower part), in which we define a fixed number of bins `3`, and then use `width` in `Equal`
    ![](images/task2/t2_knime_classify_temp_1_auto_binner.png)
 2. used `Numeric Binner` with `Math Formula` and `Variables` (the upper part)
    - The `Numeric Binner` needs the classification values as input either statically typed or dynamically with variables, we went with the dynamic option.
@@ -116,5 +116,5 @@ We calculated this in **two ways**:
 		![](images/task2/t2_knime_classify_temp_1_binner.png)
 
 
-The saved output aggregated csv files for the two approaches:
-![](images/task2/t2_knime_output_csv.png)]]
+The saved output classification csv files for the two approaches:
+![](images/task2/t2_knime_output_csv.png)
