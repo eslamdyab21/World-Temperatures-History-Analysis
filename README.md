@@ -77,6 +77,8 @@ city_data_approach2.csv  explor_datasets.ipynb  images                 prepare_d
 <br/>
 
 ## KNIME Analytics 
+I started by creating a workflow group called `Orion Technical Test` which will have all the tasks in it, a workflow for each task.
+![](images/workflow_group.png)
 ###  1- Output a table that has the overall average of each country
 #### Approach 1
 Using the `city_data_approach1.csv` as input in the `CSV Reader`
@@ -86,5 +88,5 @@ Using the `city_data_approach1.csv` as input in the `CSV Reader`
 Using the `city_data_approach2.csv` as input in the `CSV Reader`
 ![](images/task1/t1_knime_avg_temp_by_country_2.png)
 
-The saved output aggregated csv file for the two approaches:
+The saved output aggregated csv files for the two approaches:
 ![](images/task1/t1_knime_output_csv.png)
