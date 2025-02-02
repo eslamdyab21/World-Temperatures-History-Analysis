@@ -52,3 +52,23 @@ We have a number of options here:
 We will go with the following two approaches and compare the results at the end:
 1. Drop the `3.5%` null records (this option minimizes the data loss), dropping this `3.5%` null records verses filling them with whatever approach we mentioned above won't make mush of a difference here, so will go with the easier approach.
 2. Filter the original data with start date as `1882` (this option same ground-truth base of comparison)
+
+<br/>
+
+A python script `prepare_data.py` is written to output two csv files for the two approaches to be used in analytics with  `KNIME`
+```bash
+(orion) Orion360-Technical-Test$ python3 prepare_data.py 
+INFO:root:Reading city_data_table.csv....
+INFO:root:Approach 1....
+INFO:root:Saved city_data_approach1.csv
+INFO:root:Approach 1 is done
+INFO:root:Approach 2....
+INFO:root:Saved city_data_approach2.csv
+INFO:root:Approach 2 is done
+
+
+(orion) Orion360-Technical-Test$ ls
+city_data_approach1.csv  city_data_table.csv    global_data_table.csv  orion            README.md
+city_data_approach2.csv  explor_datasets.ipynb  images                 prepare_data.py
+```
+
