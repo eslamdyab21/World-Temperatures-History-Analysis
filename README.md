@@ -80,6 +80,7 @@ city_data_approach2.csv  explor_datasets.ipynb  images                 prepare_d
 I started by creating a workflow group called `Orion Technical Test` which will have all the tasks in it, a workflow for each task.
 ![](images/workflow_group.png)
 ###  1- Output a table that has the overall average of each country
+In `task1_avg_temp_by_country` workflow for this task:
 #### Approach 1
 Using the `city_data_approach1.csv` as input in the `CSV Reader`
 ![](images/task1/t1_knime_avg_temp_by_country_1.png)
@@ -90,3 +91,30 @@ Using the `city_data_approach2.csv` as input in the `CSV Reader`
 
 The saved output aggregated csv files for the two approaches:
 ![](images/task1/t1_knime_output_csv.png)
+
+<br/>
+<br/>
+
+###  2- Classify the countries Temperature into "Low/Mid/High"
+In `task2_classify_temp` workflow for this task:
+![](images/task2/t2_knime_classify_temp_1.png)
+
+We calculated this in **two ways**:
+1. used `Auto-Binner` (the lower part), in which we define a fixed number of bins `3`, and the use `width` in `Equal`
+   ![](images/task2/t2_knime_classify_temp_1_auto_binner.png)
+2. used `Numeric Binner` with `Math Formula` and `Variables` (the upper part)
+   - The `Numeric Binner` needs the classification values as input either statically typed or dynamically with variables, we went with the dynamic option.
+   - To get the boundary values for `low/min/high`, we used two math formula one to get the `lower-mid-temp` and another to get the `higher-mid-temp`. 
+	   - where the `lower-mid-temp` is defined as:
+	     ![](images/task2/t2_knime_classify_temp_1_low_mid_temp.png)
+	   - and the `higher-mid-temp` is defined as:
+	     ![](images/task2/t2_knime_classify_temp_1_high_mid_temp.png)
+	- The `Numeric Binner` then will use those to variables to define the classification boundaries as follows:
+		- Low: `-inf to low-mid-temp`
+		- Mid: `-low-mid-temp to high-mid-temp`
+		- High: `-high-mid-temp to inf`
+		![](images/task2/t2_knime_classify_temp_1_binner.png)
+
+
+The saved output aggregated csv files for the two approaches:
+![](images/task2/t2_knime_output_csv.png)]]
