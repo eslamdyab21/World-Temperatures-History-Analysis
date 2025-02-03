@@ -80,7 +80,7 @@ city_data_approach2.csv  explor_datasets.ipynb  images                 prepare_d
 I started by creating a workflow group called `Orion Technical Test` which will have all the tasks in it, a workflow for each task.
 ![](images/workflow_group.png)
 ###  1- Output a table that has the overall average of each country
-In `task1_avg_temp_by_country` workflow for this task:
+- In `task1_avg_temp_by_country` workflow for this task:
 #### Approach 1
 Using the `city_data_approach1.csv` as input in the `CSV Reader`
 ![](images/task1/t1_knime_avg_temp_by_country_1.png)
@@ -96,7 +96,7 @@ The saved output aggregated csv files for the two approaches:
 <br/>
 
 ###  2- Classify the countries Temperature into "Low/Mid/High"
-In `task2_classify_temp` workflow for this task:
+- In `task2_classify_temp` workflow for this task:
 ![](images/task2/t2_knime_classify_temp_1.png)
 
 We calculated this in **two ways**:
@@ -124,6 +124,8 @@ The saved output classification csv files for the two approaches:
 
 ###  3- Output a table that has the difference between the average of the country **in each year** and the average global temp in the last 24 years
 
+- In `task3_avg_difference` workflow for this task:
+
 To answer this question we read both csv files this time and then join them after aggregating the 24 years rolling average to the `global_data_table.csv` to get the average global temp in the last 24 years, and for the years which has less than 24 previous years `1750 to 1722` we compute the previous existing years average.
 ![](images/task3/t3_knime_diff_temp_nulls.png)
 As we can see after the left join, there are some few null values, which indicates that there are some years that are present in the `city_data_table.csv` and does not exists in the `global_data_table`, they are the years `1743, 1744 and 1745`.
@@ -137,3 +139,18 @@ After that we can simply take the difference between the two columns `avg_temp` 
 The saved output difference csv files for the two approaches:
 ![](images/task3/t3_knime_output_csv.png)
 
+
+<br/>
+<br/>
+
+###  4- Output a table that shows the top 5 countries that have the largest difference from the global Temp
+- In `task3_avg_difference` workflow for this task:
+
+- This question is a bit unclear, top 5 distinct countries for each year? or we take the average of each country across all years and take the top 5 of those ?
+- And since I emailed and got no answer to clarify this, I will go with the second assumption.
+I used the same workflow of task3 and added the lower left part for task4.
+
+![](images/task4/t4_knime_top_diff.png)
+
+The saved output top 5 countries csv files for the two approaches:
+![](images/task4/td_knime_output_csv.png)
