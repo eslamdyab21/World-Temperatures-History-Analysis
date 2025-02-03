@@ -118,3 +118,22 @@ We calculated this in **two ways**:
 
 The saved output classification csv files for the two approaches:
 ![](images/task2/t2_knime_output_csv.png)
+
+<br/>
+<br/>
+
+###  3- Output a table that has the difference between the average of the country **in each year** and the average global temp in the last 24 years
+
+To answer this question we read both csv files this time and then join them after aggregating the 24 years rolling average to the `global_data_table.csv` to get the average global temp in the last 24 years, and for the years which has less than 24 previous years `1750 to 1722` we compute the previous existing years average.
+![](images/task3/t3_knime_diff_temp_nulls.png)
+As we can see after the left join, there are some few null values, which indicates that there are some years that are present in the `city_data_table.csv` and does not exists in the `global_data_table`, they are the years `1743, 1744 and 1745`.
+
+And since the task question emphasis on comparing with global average will continue with inner join.
+
+After that we can simply take the difference between the two columns `avg_temp` and `previous_24_years_teamp_avg`
+![](images/task3/t3_knime_diff_math.png)
+![](images/task3/t3_knime_diff_temp.png)
+
+The saved output difference csv files for the two approaches:
+![](images/task3/t3_knime_output_csv.png)
+
