@@ -154,3 +154,12 @@ I used the same workflow of task3 and added the lower left part for task4.
 
 The saved output top 5 countries csv files for the two approaches:
 ![](images/task4/td_knime_output_csv.png)
+
+
+<br/>
+<br/>
+
+###  5- Draw a histogram for the yearly global temperatures
+- In `task5_histogram` workflow for this task:
+
+![](images/task5/t5_knime_hist.png)
