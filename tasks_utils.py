@@ -10,6 +10,29 @@ def task1_avg_temp_by_country(df):
 
 
 
+def task2_classify_temp(df):
+    min_temp = df['avg_temp'].min()
+    max_temp = df['avg_temp'].max()
+    
+    # Define thresholds
+    low_threshold = min_temp + (max_temp - min_temp) / 3
+    mid_threshold = min_temp + 2 * (max_temp - min_temp) / 3
+    
+    # Classification function
+    def classify(temp):
+        if temp <= low_threshold:
+            return "Low"
+        elif temp <= mid_threshold:
+            return "Mid"
+        else:
+            return "High"
+    
+    df["avg_temp_binned"] = df['avg_temp'].apply(classify)
+    
+    return df
+
+
+
 def load_knime_output_dfs():
     base_dir = "knime-csv-output"
     knime_dfs = {'approach1':{}, 'approach2':{}}
