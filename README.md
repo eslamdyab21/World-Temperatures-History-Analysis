@@ -94,7 +94,7 @@ The saved output aggregated csv files for the two approaches:
 
 
 
-#### Testing `Knime` output with python `unittetst`
+#### Testing `Knime` output with python/pandas `unittetst`
 ```bash
 (orion) Orion360-Technical-Test$ APPROACH=approach1 python -m unittest -v
 test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
@@ -142,7 +142,7 @@ The saved output classification csv files for the two approaches:
 ![](images/task2/t2_knime_output_csv.png)
 
 
-#### Testing `Knime` output with python `unittetst`
+#### Testing `Knime` output with python/pandas `unittetst`
 ```bash
 (orion) Orion360-Technical-Test$ APPROACH=approach1 python -m unittest -v
 test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
@@ -184,6 +184,30 @@ After that we can simply take the difference between the two columns `avg_temp` 
 
 The saved output difference csv files for the two approaches:
 ![](images/task3/t3_knime_output_csv.png)
+
+#### Testing `Knime` output with python/pandas `unittetst`
+```bash
+(orion) Orion360-Technical-Test$ APPROACH=approach1 python -m unittest -v
+test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
+test_task2_classify_temp (test_knime_tasks.TestOrionTasks.test_task2_classify_temp) ... ok
+test_task3_diff_temp (test_knime_tasks.TestOrionTasks.test_task3_diff_temp) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.058s
+
+OK
+(orion) Orion360-Technical-Test$ APPROACH=approach2 python -m unittest -v
+test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
+test_task2_classify_temp (test_knime_tasks.TestOrionTasks.test_task2_classify_temp) ... ok
+test_task3_diff_temp (test_knime_tasks.TestOrionTasks.test_task3_diff_temp) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.040s
+
+OK
+(orion) Orion360-Technical-Test$ 
+```
+
 
 
 <br/>
