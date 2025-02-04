@@ -1,11 +1,70 @@
 # Orion360-Technical-Test
 In this repo I'm going to solve the technical task of **Orion Digital solutions**.
 
+<br/>
+
+## Project Structure
+
+```
+-------------------knime input data-------------------
+|____/root                        
+| |____city_data_table.csv        # original
+| | |____city_data_approach1.csv  # nulls handeled
+| | |____city_data_approach2.csv  # nulls handeled
+| |____global_data_table.csv      # original
+
+
+-------------------knime output data-------------------
+|____/root/knime-workflows          
+| |____Orion_Technical_Test.knar    # all workflows
+| |____task1_avg_temp_by_country.knwf
+| |____task2_classify_temp.knwf
+| |____task3_avg_difference.knwf    # both task 3 and 4
+| |____task5_histogram.knwf
+| |____task6_chart.knwf
+
+|____/root/knime-csv-output 
+| |____approach1
+| | |____avg_temp_by_country.csv     # task1
+| | |____classify_temp.csv           # task2
+| | |____diff_temp.csv               # task3
+| | |____top5_diff_temp.csv          # task4
+| | |____chart.csv                   # task6
+| |____approach2
+| | |____......
+
+|____/root/images                    # tasks screenshots 
+| |____task1
+| | |____....
+| |____task2
+| | |____....
+| |____task3
+| | |____....
+| |____task4
+| | |____....
+| |____task5
+| | |____t5_knime_histogram.png
+| |____task6
+| | |____t5_knime_line_chart.png
+
+
+
+-------------------source code-------------------
+|____/root                   
+| |____README.md             # Github README for documentaion
+| |____explor_datasets.ipynb # jupyter notebook to explore datasets
+| |____prepare_data.py       # handle nulls and output city_data with two appraches
+| |____tasks_utils.py        # tasks 1 to 6 solution with python/pandas
+| |____test_knime_tasks.py   # unittest to test tasks solution between python/pandas and knime
+```
+
+
+<br/>
+<br/>
+
 Before we start answering the task analytical questions let's first explore the dataset and make sure we understand the data.
 
 The dataset represents the history of temperatures of the world in around 270 years.
-
-<br/>
 
 ## Exploring The Dataset
 We have `71311` records in the `city_data_table.csv` where `2547` of which are null values with a presentage of about `3.5%`.
