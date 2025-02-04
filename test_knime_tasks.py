@@ -5,6 +5,8 @@ from tasks_utils import load_knime_output_dfs
 from tasks_utils import task1_avg_temp_by_country
 from tasks_utils import task2_classify_temp
 from tasks_utils import task3_diff_temp
+from tasks_utils import task4_top5_diff_temp
+
 
 
 
@@ -46,6 +48,18 @@ class TestOrionTasks(unittest.TestCase):
     def test_task3_diff_temp(self):
         expected_df = self.knime_dfs[self.APPROACH]['diff_temp']
         actual_df = task3_diff_temp(self.city_df, self.global_avg_temp_df)
+
+        # ignore different column names
+        expected_df.columns = [''] * len(expected_df.columns)
+        actual_df.columns = [''] * len(actual_df.columns)
+
+
+        pd.testing.assert_frame_equal(actual_df, expected_df)
+
+    
+    def test_task4_top5_diff_temp(self):
+        expected_df = self.knime_dfs[self.APPROACH]['top5_diff_temp']
+        actual_df = task4_top5_diff_temp(self.city_df, self.global_avg_temp_df)
 
         # ignore different column names
         expected_df.columns = [''] * len(expected_df.columns)

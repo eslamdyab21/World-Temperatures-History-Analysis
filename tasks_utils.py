@@ -56,6 +56,20 @@ def task3_diff_temp(city_df, global_avg_temp_df):
 
 
 
+def task4_top5_diff_temp(city_df, global_avg_temp_df):
+    diff_df = task3_diff_temp(city_df, global_avg_temp_df)
+
+    diff_df['temp_diff'] = diff_df['temp_diff'].abs()
+
+    diff_df = diff_df.groupby(["country"])['temp_diff'].agg(max_diff = 'max').reset_index()
+
+    max_diff_df = diff_df.nlargest(5, 'max_diff').reset_index(drop = True)
+
+
+    return max_diff_df
+
+
+
 def load_knime_output_dfs():
     base_dir = "knime-csv-output"
     knime_dfs = {'approach1':{}, 'approach2':{}}
