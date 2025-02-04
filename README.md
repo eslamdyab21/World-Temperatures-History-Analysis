@@ -3,14 +3,29 @@ In this repo I'm going to solve the technical task of **Orion Digital solutions*
 
 <br/>
 
+# Table of Contents
+- [Project Structure](#project-structure)
+- [Exploring The Dataset](#exploring-the-dataset)
+  - [Conclusion on handling the null values and start date](#conclusion-on-handling-the-null-values-and-start-date)
+- [KNIME Analytics](#knime-analytics)
+  - [Unite test flow](#Unite-test-flow)
+  - [1- Output a table that has the overall average of each country](#1--output-a-table-that-has-the-overall-average-of-each-country)
+  - [2- Classify the countries Temperature into "Low/Mid/High"](#2--classify-the-countries-temperature-into-lowmidhigh)
+  - [3- Output a table that has the difference between the average of the country in each year and the average global temp in the last 24 years](#3--output-a-table-that-has-the-difference-between-the-average-of-the-country-in-each-year-and-the-average-global-temp-in-the-last-24-years)
+  - [4- Output a table that shows the top 5 countries that have the largest difference from the global Temp](#4--output-a-table-that-shows-the-top-5-countries-that-have-the-largest-difference-from-the-global-temp)
+  - [5- Draw a histogram for the yearly global temperatures](#5--draw-a-histogram-for-the-yearly-global-temperatures)
+  - [6- Choose any city and draw a chart to compare between this city and global average temperature over the past years](#6--choose-any-city-and-draw-a-chart-to-compare-between-this-city-and-global-average-temperature-over-the-past-years)
+
+<br/>
+
 ## Project Structure
 
 ```
 -------------------knime input data-------------------
 |____/root                        
 | |____city_data_table.csv        # original
-| | |____city_data_approach1.csv  # nulls handeled
-| | |____city_data_approach2.csv  # nulls handeled
+| |____city_data_approach1.csv    # modified version of original with nulls handeling
+| |____city_data_approach2.csv    # modified version of original with nulls handeling
 | |____global_data_table.csv      # original
 
 
@@ -138,6 +153,45 @@ city_data_approach2.csv  explor_datasets.ipynb  images                 prepare_d
 ## KNIME Analytics 
 I started by creating a workflow group called `Orion Technical Test` which will have all the tasks in it, a workflow for each task.
 ![](images/workflow_group.png)
+
+<br/>
+
+### Unite test flow
+In the root project directory exists two python files for confirming the `knime` correctness of the output of the following 1 to 6 tasks, basically every task is solved one time with `knime` and another with `python/pandas`, and then the output `dataframes` of each `knime` task is compared with same `python/pandas` task output dataframe, if they are the same then we know both are correct.
+
+- We pass an `environment variable` `APPROACH` to indicate which approach to test with.
+```bash
+(orion) Orion360-Technical-Test$ APPROACH=approach1 python -m unittest -v
+test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
+test_task2_classify_temp (test_knime_tasks.TestOrionTasks.test_task2_classify_temp) ... ok
+test_task3_diff_temp (test_knime_tasks.TestOrionTasks.test_task3_diff_temp) ... ok
+test_task4_top5_diff_temp (test_knime_tasks.TestOrionTasks.test_task4_top5_diff_temp) ... ok
+test_task6_chart (test_knime_tasks.TestOrionTasks.test_task6_chart) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.077s
+
+OK
+```
+
+```bash
+(orion) Orion360-Technical-Test$ APPROACH=approach2 python -m unittest -v
+test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
+test_task2_classify_temp (test_knime_tasks.TestOrionTasks.test_task2_classify_temp) ... ok
+test_task3_diff_temp (test_knime_tasks.TestOrionTasks.test_task3_diff_temp) ... ok
+test_task4_top5_diff_temp (test_knime_tasks.TestOrionTasks.test_task4_top5_diff_temp) ... ok
+test_task6_chart (test_knime_tasks.TestOrionTasks.test_task6_chart) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.057s
+
+OK
+```
+
+
+<br/>
+
+
 ### 1- Output a table that has the overall average of each country
 - In `task1_avg_temp_by_country` workflow for this task:
 #### Approach 1
@@ -360,7 +414,6 @@ test_task6_chart (test_knime_tasks.TestOrionTasks.test_task6_chart) ... ok
 Ran 5 tests in 0.057s
 
 OK
-
 ```
 
 
