@@ -79,7 +79,7 @@ city_data_approach2.csv  explor_datasets.ipynb  images                 prepare_d
 ## KNIME Analytics 
 I started by creating a workflow group called `Orion Technical Test` which will have all the tasks in it, a workflow for each task.
 ![](images/workflow_group.png)
-###  1- Output a table that has the overall average of each country
+### 1- Output a table that has the overall average of each country
 - In `task1_avg_temp_by_country` workflow for this task:
 #### Approach 1
 Using the `city_data_approach1.csv` as input in the `CSV Reader`
@@ -95,7 +95,7 @@ The saved output aggregated csv files for the two approaches:
 <br/>
 <br/>
 
-###  2- Classify the countries Temperature into "Low/Mid/High"
+### 2- Classify the countries Temperature into "Low/Mid/High"
 - In `task2_classify_temp` workflow for this task:
 ![](images/task2/t2_knime_classify_temp_1.png)
 
@@ -122,7 +122,7 @@ The saved output classification csv files for the two approaches:
 <br/>
 <br/>
 
-###  3- Output a table that has the difference between the average of the country **in each year** and the average global temp in the last 24 years
+### 3- Output a table that has the difference between the average of the country **in each year** and the average global temp in the last 24 years
 
 - In `task3_avg_difference` workflow for this task:
 
@@ -143,7 +143,7 @@ The saved output difference csv files for the two approaches:
 <br/>
 <br/>
 
-###  4- Output a table that shows the top 5 countries that have the largest difference from the global Temp
+### 4- Output a table that shows the top 5 countries that have the largest difference from the global Temp
 - In `task3_avg_difference` workflow for this task:
 
 - This question is a bit unclear, top 5 distinct countries for each year? or we take the average of each country across all years and take the top 5 of those ?
@@ -159,7 +159,17 @@ The saved output top 5 countries csv files for the two approaches:
 <br/>
 <br/>
 
-###  5- Draw a histogram for the yearly global temperatures
+### 5- Draw a histogram for the yearly global temperatures
 - In `task5_histogram` workflow for this task:
 
 ![](images/task5/t5_knime_hist.png)
+
+
+
+<br/>
+<br/>
+
+### 6- Choose any city and draw a chart to compare between this city and global average temperature over the past years
+- In `task6_chart` workflow for this task:
+- I've chosen `Alexandria` city in `Egypt` country by specifying that in the `Row Filter` node, and plotted that in a `line chart` node.
+![](images/task6/t6_knime_line_chart_wf.png)
