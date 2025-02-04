@@ -92,6 +92,28 @@ Using the `city_data_approach2.csv` as input in the `CSV Reader`
 The saved output aggregated csv files for the two approaches:
 ![](images/task1/t1_knime_output_csv.png)
 
+
+
+#### Testing `Knime` output with python `unittetst`
+```bash
+(orion) Orion360-Technical-Test$ APPROACH=approach1 python -m unittest -v
+test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+OK
+(orion) Orion360-Technical-Test$ APPROACH=approach2 python -m unittest -v
+test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+OK
+(orion) Orion360-Technical-Test$ 
+```
+
+
 <br/>
 <br/>
 
@@ -111,8 +133,8 @@ We calculated this in **two ways**:
 	     ![](images/task2/t2_knime_classify_temp_1_high_mid_temp.png)
 	- The `Numeric Binner` then will use those to variables to define the classification boundaries as follows:
 		- Low: `-inf to low-mid-temp`
-		- Mid: `-low-mid-temp to high-mid-temp`
-		- High: `-high-mid-temp to inf`
+		- Mid: `low-mid-temp to high-mid-temp`
+		- High: `high-mid-temp to inf`
 		![](images/task2/t2_knime_classify_temp_1_binner.png)
 
 
