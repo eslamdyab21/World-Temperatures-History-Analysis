@@ -1,6 +1,7 @@
-# Orion360-Technical-Test
-In this repo I'm going to solve the technical task of **Orion Digital solutions**.
+# World Temperatures History Analysis
 
+Analysis of history of temperatures of the world in around 270 years with `knime analytics platform` and `pandas`.
+ 
 <br/>
 
 # Table of Contents
