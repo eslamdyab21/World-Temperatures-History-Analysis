@@ -3,16 +3,16 @@ import os
 
 
 
-def task1_avg_temp_by_country(df):
-    avg_temp_by_country_df = df.groupby(["country"])['avg_temp'].agg(avg_temp_by_country = 'mean').reset_index()
+def task1_avg_temp_by_country(city_df):
+    avg_temp_by_country_df = city_df.groupby(["country"])['avg_temp'].agg(avg_temp_by_country = 'mean').reset_index()
     
     return avg_temp_by_country_df
 
 
 
-def task2_classify_temp(df):
-    min_temp = df['avg_temp'].min()
-    max_temp = df['avg_temp'].max()
+def task2_classify_temp(city_df):
+    min_temp = city_df['avg_temp'].min()
+    max_temp = city_df['avg_temp'].max()
     
     # Define thresholds
     low_threshold = min_temp + (max_temp - min_temp) / 3
@@ -27,9 +27,32 @@ def task2_classify_temp(df):
         else:
             return "High"
     
-    df["avg_temp_binned"] = df['avg_temp'].apply(classify)
+    city_df["avg_temp_binned"] = city_df['avg_temp'].apply(classify)
     
-    return df
+    return city_df
+
+
+def task3_diff_temp(city_df, global_avg_temp_df):
+    # ------------- global_avg_temp_df -------------
+    global_avg_temp_df = global_avg_temp_df.sort_values(by='year')
+    
+    # rolling window for previous 24 years
+    global_avg_temp_df['avg_temp_24_years'] = global_avg_temp_df['avg_temp'].rolling(window=24, min_periods=1).mean()
+
+
+    # ------------- city_df -------------
+    city_df = city_df.groupby(["year","country"])['avg_temp'].agg(avg_temp_by_year_country = 'mean').reset_index()
+    
+
+
+    global_avg_temp_df.set_index('year', inplace=True)
+    city_df.set_index('year', inplace=True)
+    diff_df = city_df.join(global_avg_temp_df, on='year', how='inner').reset_index()
+
+    diff_df['temp_diff'] = diff_df['avg_temp_24_years'] - diff_df['avg_temp_by_year_country']
+    diff_df = diff_df.drop(columns=['avg_temp_24_years', 'avg_temp_by_year_country', 'avg_temp'])
+
+    return diff_df
 
 
 
