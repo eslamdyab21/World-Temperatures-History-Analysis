@@ -103,6 +103,9 @@ test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_t
 Ran 1 test in 0.004s
 
 OK
+```
+
+```bash
 (orion) Orion360-Technical-Test$ APPROACH=approach2 python -m unittest -v
 test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
 
@@ -110,9 +113,7 @@ test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_t
 Ran 1 test in 0.004s
 
 OK
-(orion) Orion360-Technical-Test$ 
 ```
-
 
 <br/>
 <br/>
@@ -152,6 +153,9 @@ test_task2_classify_temp (test_knime_tasks.TestOrionTasks.test_task2_classify_te
 Ran 2 tests in 0.026s
 
 OK
+```
+
+```bash
 (orion) Orion360-Technical-Test$ APPROACH=approach2 python -m unittest -v
 test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
 test_task2_classify_temp (test_knime_tasks.TestOrionTasks.test_task2_classify_temp) ... ok
@@ -160,10 +164,7 @@ test_task2_classify_temp (test_knime_tasks.TestOrionTasks.test_task2_classify_te
 Ran 2 tests in 0.019s
 
 OK
-(orion) Orion360-Technical-Test$ 
-
 ```
-
 
 <br/>
 <br/>
@@ -196,6 +197,9 @@ test_task3_diff_temp (test_knime_tasks.TestOrionTasks.test_task3_diff_temp) ... 
 Ran 3 tests in 0.058s
 
 OK
+```
+
+```bash
 (orion) Orion360-Technical-Test$ APPROACH=approach2 python -m unittest -v
 test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
 test_task2_classify_temp (test_knime_tasks.TestOrionTasks.test_task2_classify_temp) ... ok
@@ -205,10 +209,7 @@ test_task3_diff_temp (test_knime_tasks.TestOrionTasks.test_task3_diff_temp) ... 
 Ran 3 tests in 0.040s
 
 OK
-(orion) Orion360-Technical-Test$ 
 ```
-
-
 
 <br/>
 <br/>
@@ -239,6 +240,9 @@ test_task4_top5_diff_temp (test_knime_tasks.TestOrionTasks.test_task4_top5_diff_
 Ran 4 tests in 0.070s
 
 OK
+```
+
+```bash
 (orion) Orion360-Technical-Test$ APPROACH=approach2 python -m unittest -v
 test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
 test_task2_classify_temp (test_knime_tasks.TestOrionTasks.test_task2_classify_temp) ... ok
@@ -249,8 +253,6 @@ test_task4_top5_diff_temp (test_knime_tasks.TestOrionTasks.test_task4_top5_diff_
 Ran 4 tests in 0.051s
 
 OK
-(orion) Orion360-Technical-Test$ git status
-
 ```
 
 
