@@ -146,9 +146,10 @@ The saved output difference csv files for the two approaches:
 ### 4- Output a table that shows the top 5 countries that have the largest difference from the global Temp
 - In `task3_avg_difference` workflow for this task:
 
-- This question is a bit unclear, top 5 distinct countries for each year? or we take the average of each country across all years and take the top 5 of those ?
-- And since I emailed and got no answer to clarify this, I will go with the second assumption.
-I used the same workflow of task3 and added the lower left part for task4.
+- This question is a bit unclear, top 5 distinct countries for each year? or we take the average of each country across all years and take the top 5 of those ? or we get the maximum of each country across all years and take the top 5 of those.
+- And since I emailed and got no answer to clarify this, I will go with the last assumption.
+
+I used the same workflow of task3 and added the lower left part for task4, I used `max` as an aggregation method in the `GroupBy` node after taking the absolute value with `Math Formula` node to account for negative differences values.
 
 ![](images/task4/t4_knime_top_diff.png)
 
