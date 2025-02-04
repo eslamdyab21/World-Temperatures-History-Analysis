@@ -273,3 +273,37 @@ OK
 - In `task6_chart` workflow for this task:
 - I've chosen `Alexandria` city in `Egypt` country by specifying that in the `Row Filter` node, and plotted that in a `line chart` node.
 ![](images/task6/t6_knime_line_chart_wf.png)
+
+#### Testing `Knime` output with python/pandas `unittetst`
+```bash
+(orion) Orion360-Technical-Test$ APPROACH=approach1 python -m unittest -v
+test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
+test_task2_classify_temp (test_knime_tasks.TestOrionTasks.test_task2_classify_temp) ... ok
+test_task3_diff_temp (test_knime_tasks.TestOrionTasks.test_task3_diff_temp) ... ok
+test_task4_top5_diff_temp (test_knime_tasks.TestOrionTasks.test_task4_top5_diff_temp) ... ok
+test_task6_chart (test_knime_tasks.TestOrionTasks.test_task6_chart) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.077s
+
+OK
+```
+
+```bash
+(orion) Orion360-Technical-Test$ APPROACH=approach2 python -m unittest -v
+test_task1_avg_temp_by_country (test_knime_tasks.TestOrionTasks.test_task1_avg_temp_by_country) ... ok
+test_task2_classify_temp (test_knime_tasks.TestOrionTasks.test_task2_classify_temp) ... ok
+test_task3_diff_temp (test_knime_tasks.TestOrionTasks.test_task3_diff_temp) ... ok
+test_task4_top5_diff_temp (test_knime_tasks.TestOrionTasks.test_task4_top5_diff_temp) ... ok
+test_task6_chart (test_knime_tasks.TestOrionTasks.test_task6_chart) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.057s
+
+OK
+
+```
+
+
+<br/>
+<br/>

@@ -70,6 +70,21 @@ def task4_top5_diff_temp(city_df, global_avg_temp_df):
 
 
 
+def task6_chart(city_df, global_avg_temp_df):
+    one_city_df = city_df[(city_df['country'] == 'Egypt') & (city_df['city'] == 'Alexandria')].copy()
+
+    one_city_df.rename(columns={'avg_temp': 'city_avg_temp'}, inplace=True)
+    global_avg_temp_df.rename(columns={'avg_temp': 'global_avg_temp'}, inplace=True)
+
+    global_avg_temp_df.set_index('year', inplace=True)
+    one_city_df.set_index('year', inplace=True)
+    chart_df = one_city_df.join(global_avg_temp_df, on='year', how='inner').reset_index()
+    
+
+    return chart_df
+
+
+
 def load_knime_output_dfs():
     base_dir = "knime-csv-output"
     knime_dfs = {'approach1':{}, 'approach2':{}}
